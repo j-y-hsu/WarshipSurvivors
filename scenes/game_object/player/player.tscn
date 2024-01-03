@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://3h0qwh273e5l"]
+
+[ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_m32oa"]
+[ext_resource type="PackedScene" uid="uid://be4ysojdgf2uk" path="res://scenes/game_camera/game_camera.tscn" id="2_3v7ow"]
+[ext_resource type="Texture2D" uid="uid://cdk1lumn24ll1" path="res://scenes/game_object/player/ship_large_body.png" id="2_52jbp"]
+[ext_resource type="PackedScene" uid="uid://dekb78gj4e1wj" path="res://scenes/game_object/big_double_gun/ship_big_double_gun.tscn" id="3_bnqsd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_falfx"]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+motion_mode = 1
+script = ExtResource("1_m32oa")
+
+[node name="GameCamera" parent="." instance=ExtResource("2_3v7ow")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_52jbp")
+
+[node name="ShipBigDoubleGunC" parent="." instance=ExtResource("3_bnqsd")]
+position = Vector2(0, 71)
+placement = "C"
+min_firing_angle = -45.0
+max_firing_angle = 225.0
+
+[node name="CTurretJoint" type="PinJoint2D" parent="."]
+position = Vector2(0, 71)
+node_a = NodePath("..")
+node_b = NodePath("../ShipBigDoubleGunC")
+
+[node name="ShipBigDoubleGunB" parent="." instance=ExtResource("3_bnqsd")]
+position = Vector2(0, 43)
+placement = "B"
+min_firing_angle = -40.0
+max_firing_angle = 220.0
+
+[node name="BTurretJoint" type="PinJoint2D" parent="."]
+position = Vector2(0, 43)
+node_a = NodePath("..")
+node_b = NodePath("../ShipBigDoubleGunB")
+
+[node name="ShipBigDoubleGunA" parent="." instance=ExtResource("3_bnqsd")]
+position = Vector2(0, -63)
+min_firing_angle = -180.0
+max_firing_angle = 0.0
+
+[node name="ATurretJoin" type="PinJoint2D" parent="."]
+position = Vector2(0, -63)
+node_a = NodePath("..")
+node_b = NodePath("../ShipBigDoubleGunA")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+scale = Vector2(4, 11)
+shape = SubResource("CapsuleShape2D_falfx")
