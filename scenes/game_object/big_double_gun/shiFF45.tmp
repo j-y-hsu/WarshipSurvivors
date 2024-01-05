@@ -50,14 +50,14 @@ script = ExtResource("1_26wke")
 rotation = -1.5708
 texture = ExtResource("1_4oux5")
 
-[node name="Shoot" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Shoot"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
 libraries = {
 "": SubResource("AnimationLibrary_kf8tc")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="Shoot"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 position = Vector2(1, -37)
 rotation = -3.14159
 scale = Vector2(0.8, 0.8)

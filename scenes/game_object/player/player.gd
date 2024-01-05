@@ -16,7 +16,6 @@ var current_rotation_speed = 0.0
 
 func _process(delta):
 	move_player(delta)
-	print("player rotation: ", global_rotation)
 
 
 func move_player(delta):

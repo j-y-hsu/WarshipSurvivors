@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccrxrvi015i5f"]
+
+[ext_resource type="Texture2D" uid="uid://cdk1lumn24ll1" path="res://scenes/game_object/player/ship_large_body.png" id="1_r4ibo"]
+[ext_resource type="PackedScene" uid="uid://ddbg3ppq4urg7" path="res://scenes/game_object/big_double_gun/turret_well.tscn" id="3_f2ssy"]
+
+[node name="Cruiser" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r4ibo")
+
+[node name="TurretWellC" parent="." instance=ExtResource("3_f2ssy")]
+position = Vector2(0, 71)
+rotation = 1.5708
+placement = "C"
+min_firing_angle = -125.0
+max_firing_angle = 125.0
+
+[node name="TurretWellB" parent="." instance=ExtResource("3_f2ssy")]
+position = Vector2(0, 43)
+rotation = 1.5708
+placement = "B"
+min_firing_angle = -120.0
+max_firing_angle = 120.0
+
+[node name="TurretWellA" parent="." instance=ExtResource("3_f2ssy")]
+position = Vector2(0, -63)
+rotation = -1.5708
