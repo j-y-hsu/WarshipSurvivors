@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddbg3ppq4urg7"]
+
+[ext_resource type="PackedScene" uid="uid://dekb78gj4e1wj" path="res://scenes/game_object/big_double_gun/ship_big_double_gun.tscn" id="1_v8pox"]
+[ext_resource type="Script" path="res://scenes/game_object/big_double_gun/turret_well.gd" id="1_wq5c2"]
+
+[node name="TurretWell" type="Node2D"]
+script = ExtResource("1_wq5c2")
+
+[node name="ShipBigDoubleGun" parent="." instance=ExtResource("1_v8pox")]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]

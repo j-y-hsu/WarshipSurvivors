@@ -58,7 +58,7 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="Shoot"]
-position = Vector2(1, -37)
-rotation = -3.14159
+position = Vector2(37, 0)
+rotation = -1.5708
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_lqlfd")

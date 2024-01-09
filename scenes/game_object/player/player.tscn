@@ -12,7 +12,7 @@ script = ExtResource("1_m32oa")
 
 [node name="GameCamera" parent="." instance=ExtResource("2_3v7ow")]
 
-[node name="Cruiser" parent="." instance=ExtResource("3_di5bd")]
+[node name="Ship" parent="." instance=ExtResource("3_di5bd")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

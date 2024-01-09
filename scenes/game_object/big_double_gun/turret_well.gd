@@ -16,7 +16,16 @@ func _ready():
 
 
 func _process(delta):
+	var angle = turret.position.angle_to_point(get_local_mouse_position())
+
 	var angle_to_mouse = turret.position.angle_to_point(turret.get_local_mouse_position())
 	var rotation_rate = turret_speed * delta
-	turret.rotate_gun(angle_to_mouse, rotation_rate, rad_min_firing_angle, rad_max_firing_angle)
+	var rotation_direction = 0
+
+	if angle > rad_min_firing_angle && angle < rad_max_firing_angle:
+		rotation_direction = sign(angle_to_mouse)
+	else:
+		rotation_direction = sign(angle)
+		
+	turret.rotate_gun(angle_to_mouse, rotation_rate, rad_min_firing_angle, rad_max_firing_angle, rotation_direction)
 	
