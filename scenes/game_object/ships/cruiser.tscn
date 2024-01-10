@@ -18,6 +18,7 @@ rotation = 1.5708
 placement = "C"
 min_firing_angle = -125.0
 max_firing_angle = 125.0
+turret_speed = 1.0
 
 [node name="TurretWellB" parent="." instance=ExtResource("3_f2ssy")]
 position = Vector2(0, 43)
@@ -25,7 +26,9 @@ rotation = 1.5708
 placement = "B"
 min_firing_angle = -120.0
 max_firing_angle = 120.0
+turret_speed = 1.0
 
 [node name="TurretWellA" parent="." instance=ExtResource("3_f2ssy")]
 position = Vector2(0, -63)
 rotation = -1.5708
+turret_speed = 1.0

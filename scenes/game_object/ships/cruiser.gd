@@ -6,6 +6,7 @@ extends Node2D
 @export var max_rotation_speed: float = 1
 @export var rotation_acceleration: float = 0.007
 
+var turretWells: Array
 var speed_interval: float = max_speed / 4.0
 var min_speed: float = -1 * speed_interval
 var current_speed: float = 0.0
@@ -13,11 +14,17 @@ var current_speed_interval: float = 0.0
 var rotation_direction: float = 0
 var current_rotation_speed: float = 0.0
 
-#func _process(delta):
-#	if current_speed < current_speed_interval:
-#		current_speed = min(current_speed + (acceleration * delta), current_speed_interval)
-#	if current_speed > current_speed_interval:
-#		current_speed = max(current_speed - (decceleration * delta), current_speed_interval)
+func _ready():
+	turretWells = find_children("TurretWell*")
+	turretWells.reverse()
+
+
+func fire_guns():
+	if turretWells.size() == 0:
+		return
+	
+	for turretWell in turretWells:
+		turretWell.fire_gun()
 
 
 func adjust_bearing(delta, turning, direction):
@@ -33,12 +40,9 @@ func adjust_bearing(delta, turning, direction):
 func adjust_speed_interval(direction):
 	current_speed_interval = clamp(current_speed_interval + (direction * speed_interval), min_speed, max_speed)
 
+
 func adjust_speed(delta):
 	if current_speed < current_speed_interval:
 		current_speed = min(current_speed + (acceleration * delta), current_speed_interval)
 	if current_speed > current_speed_interval:
 		current_speed = max(current_speed - (decceleration * delta), current_speed_interval)
-#	if Input.is_action_just_pressed("up"):
-#		current_speed_interval = min(current_speed_interval + speed_interval, max_speed)
-#	if Input.is_action_just_pressed("down"):
-#		current_speed_interval = max(current_speed_interval - speed_interval, min_speed)

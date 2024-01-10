@@ -10,6 +10,7 @@ extends Node2D
 var rad_min_firing_angle: float
 var rad_max_firing_angle: float
 
+
 func _ready():
 	rad_min_firing_angle = deg_to_rad(min_firing_angle)
 	rad_max_firing_angle = deg_to_rad(max_firing_angle)
@@ -28,4 +29,9 @@ func _process(delta):
 		rotation_direction = sign(angle)
 		
 	turret.rotate_gun(angle_to_mouse, rotation_rate, rad_min_firing_angle, rad_max_firing_angle, rotation_direction)
-	
+
+func fire_gun():
+	var angle_to_mouse = turret.position.angle_to_point(turret.get_local_mouse_position())
+	print (angle_to_mouse)
+	if snappedf(angle_to_mouse, 0.01) == 0.0:
+		turret.fire_gun()
