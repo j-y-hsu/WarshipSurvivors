@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ddbg3ppq4urg7" path="res://scenes/game_object/big_double_gun/turret_well.tscn" id="3_f2ssy"]
 
 [node name="Cruiser" type="Node2D"]
+rotation = 1.5708
 script = ExtResource("1_diklp")
 acceleration = 30.0
 rotation_acceleration = 0.5

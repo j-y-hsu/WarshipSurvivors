@@ -15,8 +15,5 @@ func _process(delta):
 		return
 	
 	var angle_to_target = get_angle_to(player.global_position)
-#	print("player position: ", player.global_position)
-#	print("to target: ", rad_to_deg(angle_to_target))
-#	print("global rotation: ", rad_to_deg(rotation))
 	if !is_zero_approx(angle_to_target):
 		global_rotation = global_rotation + (sign(angle_to_target) * min(abs(angle_to_target), rotation_speed)) * delta

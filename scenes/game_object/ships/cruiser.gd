@@ -1,5 +1,7 @@
 extends Node2D
 
+signal gun_fired(muzzle_transforms: Array)
+
 @export var max_speed: float = 200.0
 @export var acceleration: float = 50
 @export var decceleration: float = 50
@@ -14,9 +16,12 @@ var current_speed_interval: float = 0.0
 var rotation_direction: float = 0
 var current_rotation_speed: float = 0.0
 
+
 func _ready():
 	turretWells = find_children("TurretWell*")
 	turretWells.reverse()
+	for turretWell in turretWells:
+		turretWell.turret.gun_fired.connect(on_gun_fired)
 
 
 func fire_guns():
@@ -46,3 +51,7 @@ func adjust_speed(delta):
 		current_speed = min(current_speed + (acceleration * delta), current_speed_interval)
 	if current_speed > current_speed_interval:
 		current_speed = max(current_speed - (decceleration * delta), current_speed_interval)
+
+
+func on_gun_fired(muzzle_transforms):
+	gun_fired.emit(muzzle_transforms)

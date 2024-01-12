@@ -32,6 +32,5 @@ func _process(delta):
 
 func fire_gun():
 	var angle_to_mouse = turret.position.angle_to_point(turret.get_local_mouse_position())
-	print (angle_to_mouse)
 	if snappedf(angle_to_mouse, 0.01) == 0.0:
 		turret.fire_gun()

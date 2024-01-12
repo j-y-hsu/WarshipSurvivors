@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp0kiyylx5ojd"]
+
+[ext_resource type="Script" path="res://controllers/shot_controller.gd" id="1_wxcdf"]
+
+[node name="ShotController" type="Node"]
+script = ExtResource("1_wxcdf")

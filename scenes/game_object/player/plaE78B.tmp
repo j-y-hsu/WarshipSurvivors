@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://3h0qwh273e5l"]
+[gd_scene load_steps=6 format=3 uid="uid://3h0qwh273e5l"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_m32oa"]
 [ext_resource type="PackedScene" uid="uid://be4ysojdgf2uk" path="res://scenes/game_camera/game_camera.tscn" id="2_3v7ow"]
-[ext_resource type="PackedScene" uid="uid://uhu65p6oltdx" path="res://scenes/bullet/bullet.tscn" id="2_x0kqd"]
 [ext_resource type="PackedScene" uid="uid://ccrxrvi015i5f" path="res://scenes/game_object/ships/cruiser.tscn" id="3_di5bd"]
 [ext_resource type="PackedScene" uid="uid://dp0kiyylx5ojd" path="res://controllers/shot_controller.tscn" id="4_rde4d"]
 
@@ -11,7 +10,6 @@
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_m32oa")
-bullet = ExtResource("2_x0kqd")
 
 [node name="GameCamera" parent="." instance=ExtResource("2_3v7ow")]
 

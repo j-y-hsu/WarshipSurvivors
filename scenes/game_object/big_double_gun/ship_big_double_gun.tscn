@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dekb78gj4e1wj"]
+[gd_scene load_steps=8 format=3 uid="uid://dekb78gj4e1wj"]
 
 [ext_resource type="Texture2D" uid="uid://dl2xvggr2tabj" path="res://scenes/game_object/big_double_gun/ship_big_gun_dual.png" id="1_4oux5"]
 [ext_resource type="Script" path="res://scenes/game_object/big_double_gun/ship_big_double_gun.gd" id="1_26wke"]
+[ext_resource type="PackedScene" uid="uid://uhu65p6oltdx" path="res://scenes/bullet/bullet.tscn" id="2_6tg0a"]
 [ext_resource type="Texture2D" uid="uid://dkfvabopfg72m" path="res://scenes/game_object/Fire1_3.png" id="3_lqlfd"]
 
 [sub_resource type="Animation" id="Animation_3h6wh"]
@@ -45,6 +46,17 @@ _data = {
 [node name="ShipBigDoubleGun" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_26wke")
+bullet = ExtResource("2_6tg0a")
+
+[node name="ReloadTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="MuzzleA" type="Marker2D" parent="."]
+position = Vector2(29, -3)
+
+[node name="MuzzleB" type="Marker2D" parent="."]
+position = Vector2(29, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708
